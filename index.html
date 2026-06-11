@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roman Design Studio — Interior & Spatial Design</title>
+  <meta name="description" content="Roman Design Studio is a design practice creating clean, considered, and timeless interiors and spaces." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#">Roman Design Studio</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Thoughtful design for spaces that endure.</h1>
+        <p class="lead">
+          Roman Design Studio is a design practice crafting clean, considered,
+          and timeless interiors. We believe great spaces are built on
+          restraint, light, and an eye for detail.
+        </p>
+        <a class="btn" href="#contact">Start a project</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container split">
+        <div class="split-label">About</div>
+        <div class="split-body">
+          <h2>A studio rooted in simplicity.</h2>
+          <p>
+            We approach every project with curiosity and care, shaping
+            environments that feel effortless and personal. From the first
+            sketch to the final styling, our work is guided by proportion,
+            material honesty, and the way people actually live.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="split-label">Services</div>
+          <h2>What we do</h2>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Interior Design</h3>
+            <p>Full-service interiors for homes and considered commercial spaces, from concept through completion.</p>
+          </article>
+          <article class="card">
+            <h3>Spatial Planning</h3>
+            <p>Layouts and flow that make the most of light, scale, and the everyday rhythms of a space.</p>
+          </article>
+          <article class="card">
+            <h3>Styling & Curation</h3>
+            <p>Furniture, finishes, and finishing touches selected to bring a cohesive, lasting character.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact">
+        <div class="split-label">Contact</div>
+        <h2>Let's create something together.</h2>
+        <p>Tell us about your space and what you have in mind.</p>
+        <a class="btn" href="mailto:hello@romandesignstudio.com">hello@romandesignstudio.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Roman Design Studio</span>
+      <span>&copy; <span id="year"></span> All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
