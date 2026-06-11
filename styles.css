@@ -184,6 +184,10 @@ a { color: inherit; }
   margin: 0;
 }
 
+.ba-project + .ba-project {
+  margin-top: 3.5rem;
+}
+
 .ba-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
