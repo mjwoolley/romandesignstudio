@@ -179,6 +179,62 @@ a { color: inherit; }
   margin: 0;
 }
 
+/* Before & After */
+.ba-project {
+  margin: 0;
+}
+
+.ba-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.ba-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: var(--bg-alt);
+}
+
+.ba-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.ba-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(31, 29, 26, 0.85);
+  color: var(--bg);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ba-tag-after {
+  background: var(--accent);
+}
+
+.ba-project figcaption {
+  margin-top: 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .ba-pair { grid-template-columns: 1fr; }
+}
+
 /* Contact */
 .contact {
   text-align: center;
