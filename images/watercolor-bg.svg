@@ -1,109 +1,110 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Watercolor edge distortion -->
-    <filter id="wc-circle" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.025 0.02" numOctaves="5" seed="7" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
-      <feGaussianBlur in="displaced" stdDeviation="4" result="blurred"/>
-      <feComposite in="blurred" in2="SourceGraphic" operator="in"/>
+    <!-- Soft watercolor edge distortion -->
+    <filter id="wc" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022 0.018" numOctaves="5" seed="9" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="26" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="5" result="b"/>
+      <feComposite in="b" in2="SourceGraphic" operator="in"/>
     </filter>
-    <filter id="wc-dark" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.025" numOctaves="4" seed="14" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
-      <feGaussianBlur in="displaced" stdDeviation="5" result="blurred"/>
-      <feComposite in="blurred" in2="SourceGraphic" operator="in"/>
+    <filter id="wc-dark" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028 0.022" numOctaves="4" seed="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="6" result="b"/>
+      <feComposite in="b" in2="SourceGraphic" operator="in"/>
     </filter>
-    <filter id="wc-sprig" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.055 0.04" numOctaves="3" seed="2" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+    <filter id="wc-lotus" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.03" numOctaves="4" seed="6" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="2.5"/>
     </filter>
 
-    <!-- Radial gradient to give each circle a watercolor inner-lighter feel -->
-    <radialGradient id="peach-grad" cx="42%" cy="40%" r="58%">
-      <stop offset="0%"   stop-color="#e8c4a8" stop-opacity="0.55"/>
-      <stop offset="55%"  stop-color="#d4956a" stop-opacity="0.48"/>
-      <stop offset="100%" stop-color="#c07048" stop-opacity="0.28"/>
+    <!-- Circle gradients matching card palette -->
+    <!-- Warm peach/salmon — main large circle -->
+    <radialGradient id="g-peach" cx="38%" cy="35%" r="62%">
+      <stop offset="0%"   stop-color="#e8b48a" stop-opacity="0.70"/>
+      <stop offset="40%"  stop-color="#d4906a" stop-opacity="0.58"/>
+      <stop offset="100%" stop-color="#c07050" stop-opacity="0.22"/>
     </radialGradient>
-    <radialGradient id="terra-grad" cx="45%" cy="38%" r="56%">
-      <stop offset="0%"   stop-color="#dba882" stop-opacity="0.50"/>
-      <stop offset="50%"  stop-color="#c07855" stop-opacity="0.44"/>
-      <stop offset="100%" stop-color="#a85c3a" stop-opacity="0.22"/>
+    <!-- Deep terracotta/burnt sienna — lower left -->
+    <radialGradient id="g-terra" cx="40%" cy="38%" r="60%">
+      <stop offset="0%"   stop-color="#c86845" stop-opacity="0.72"/>
+      <stop offset="50%"  stop-color="#b05030" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8a3820" stop-opacity="0.20"/>
     </radialGradient>
-    <radialGradient id="dark-grad" cx="48%" cy="45%" r="52%">
-      <stop offset="0%"   stop-color="#3a3530" stop-opacity="0.70"/>
-      <stop offset="60%"  stop-color="#2a2520" stop-opacity="0.60"/>
-      <stop offset="100%" stop-color="#1a1510" stop-opacity="0.30"/>
+    <!-- Soft blush/cream — upper right, lighter -->
+    <radialGradient id="g-blush" cx="42%" cy="40%" r="58%">
+      <stop offset="0%"   stop-color="#f2d8c8" stop-opacity="0.60"/>
+      <stop offset="55%"  stop-color="#e0c0a8" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#ccaa90" stop-opacity="0.15"/>
     </radialGradient>
-    <radialGradient id="blush-grad" cx="40%" cy="42%" r="58%">
-      <stop offset="0%"   stop-color="#f0d4c0" stop-opacity="0.45"/>
-      <stop offset="60%"  stop-color="#e0b090" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#cc8860" stop-opacity="0.15"/>
+    <!-- Near-black charcoal — upper right dominant -->
+    <radialGradient id="g-dark" cx="45%" cy="42%" r="55%">
+      <stop offset="0%"   stop-color="#2c2822" stop-opacity="0.88"/>
+      <stop offset="55%"  stop-color="#1e1a14" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#0e0a08" stop-opacity="0.28"/>
+    </radialGradient>
+    <!-- Lotus petal gradient -->
+    <radialGradient id="g-lotus" cx="50%" cy="70%" r="50%">
+      <stop offset="0%"   stop-color="#f0d0b8" stop-opacity="0.85"/>
+      <stop offset="60%"  stop-color="#e0b090" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#c88060" stop-opacity="0.30"/>
     </radialGradient>
   </defs>
 
-  <!-- === CIRCLE 1: Large soft peach — left-center === -->
-  <g filter="url(#wc-circle)">
-    <circle cx="340" cy="340" r="310" fill="url(#peach-grad)"/>
+  <!-- === CIRCLE 1: Large warm peach/salmon — left-center, biggest === -->
+  <g filter="url(#wc)">
+    <circle cx="310" cy="360" r="320" fill="url(#g-peach)"/>
   </g>
 
-  <!-- === CIRCLE 2: Mid peach-terracotta — center, overlapping === -->
-  <g filter="url(#wc-circle)">
-    <circle cx="620" cy="280" r="270" fill="url(#terra-grad)"/>
+  <!-- === CIRCLE 2: Mid peach overlapping right of first === -->
+  <g filter="url(#wc)">
+    <circle cx="580" cy="270" r="255" fill="url(#g-peach)" opacity="0.75"/>
   </g>
 
-  <!-- === CIRCLE 3: Blush/light peach — upper left bleed === -->
-  <g filter="url(#wc-circle)">
-    <circle cx="80" cy="120" r="240" fill="url(#blush-grad)"/>
+  <!-- === CIRCLE 3: Soft blush — upper left bleed === -->
+  <g filter="url(#wc)">
+    <circle cx="55" cy="100" r="220" fill="url(#g-blush)"/>
   </g>
 
-  <!-- === CIRCLE 4: Dark charcoal — upper right, partially cropped === -->
+  <!-- === CIRCLE 4: Deep terracotta — lower left, punchy === -->
+  <g filter="url(#wc)">
+    <circle cx="120" cy="530" r="240" fill="url(#g-terra)"/>
+  </g>
+
+  <!-- === CIRCLE 5: Near-black charcoal — upper right, partially cropped === -->
   <g filter="url(#wc-dark)">
-    <circle cx="1230" cy="80" r="310" fill="url(#dark-grad)"/>
+    <circle cx="1270" cy="60" r="330" fill="url(#g-dark)"/>
   </g>
 
-  <!-- === CIRCLE 5: Smaller terracotta — lower left === -->
-  <g filter="url(#wc-circle)" opacity="0.6">
-    <circle cx="160" cy="500" r="180" fill="#c07050" opacity="0.30"/>
+  <!-- === CIRCLE 6: Smaller terracotta echo — right side === -->
+  <g filter="url(#wc)" opacity="0.55">
+    <circle cx="980" cy="430" r="150" fill="#c06848" opacity="0.38"/>
   </g>
 
-  <!-- === BOTANICAL SPRIG — near dark circle, upper right area === -->
-  <g filter="url(#wc-sprig)" transform="translate(1050, 55)" opacity="0.85">
-    <!-- Main stem -->
-    <path d="M 55,130 Q 52,95 48,65 Q 44,38 50,12" stroke="#4a5a35" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-    <!-- Branch left -->
-    <path d="M 50,70 Q 32,55 18,42" stroke="#4a5a35" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <!-- Branch right -->
-    <path d="M 50,90 Q 68,76 80,65" stroke="#4a5a35" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <!-- Leaves -->
-    <ellipse cx="44" cy="18" rx="12" ry="5" transform="rotate(-30 44 18)" fill="#5a7040" opacity="0.9"/>
-    <ellipse cx="56" cy="30" rx="13" ry="5" transform="rotate(20 56 30)" fill="#4a6035" opacity="0.85"/>
-    <ellipse cx="40" cy="48" rx="11" ry="4.5" transform="rotate(-40 40 48)" fill="#5a7040" opacity="0.8"/>
-    <ellipse cx="62" cy="60" rx="12" ry="4.5" transform="rotate(28 62 60)" fill="#4a6035" opacity="0.8"/>
-    <!-- Left branch leaves -->
-    <ellipse cx="18" cy="42" rx="11" ry="4" transform="rotate(-55 18 42)" fill="#5a7040" opacity="0.75"/>
-    <ellipse cx="30" cy="50" rx="10" ry="4" transform="rotate(-35 30 50)" fill="#4a6035" opacity="0.70"/>
-    <!-- Right branch leaves -->
-    <ellipse cx="80" cy="65" rx="11" ry="4" transform="rotate(45 80 65)" fill="#5a7040" opacity="0.75"/>
-    <ellipse cx="68" cy="72" rx="10" ry="4" transform="rotate(30 68 72)" fill="#4a6035" opacity="0.70"/>
-    <!-- Small flower/seed heads -->
-    <circle cx="50" cy="12" r="3.5" fill="#8a9a55" opacity="0.8"/>
-    <circle cx="44" cy="8"  r="2.5" fill="#9aaa60" opacity="0.7"/>
-    <circle cx="57" cy="10" r="2"   fill="#8a9a55" opacity="0.65"/>
-  </g>
-
-  <!-- === BRASS SPLASH — lower center-right === -->
-  <defs>
-    <radialGradient id="brass-grad" cx="38%" cy="35%" r="60%">
-      <stop offset="0%"   stop-color="#d4a843" stop-opacity="0.62"/>
-      <stop offset="45%"  stop-color="#b8882a" stop-opacity="0.50"/>
-      <stop offset="100%" stop-color="#8a6010" stop-opacity="0.18"/>
-    </radialGradient>
-  </defs>
-  <g filter="url(#wc-circle)" opacity="0.75">
-    <circle cx="860" cy="480" r="175" fill="url(#brass-grad)"/>
-  </g>
-  <!-- Smaller brass fleck upper area -->
-  <g filter="url(#wc-circle)" opacity="0.55">
-    <circle cx="480" cy="55" r="90" fill="#c09830" opacity="0.28"/>
+  <!-- === LOTUS — center, watercolor painted === -->
+  <g filter="url(#wc-lotus)" transform="translate(820, 175)">
+    <!-- Outer petals (8 petals, rotated) -->
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(0)"   fill="url(#g-lotus)" opacity="0.72"/>
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(45)"  fill="url(#g-lotus)" opacity="0.68"/>
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(90)"  fill="url(#g-lotus)" opacity="0.72"/>
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(135)" fill="url(#g-lotus)" opacity="0.68"/>
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(180)" fill="url(#g-lotus)" opacity="0.72"/>
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(225)" fill="url(#g-lotus)" opacity="0.68"/>
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(270)" fill="url(#g-lotus)" opacity="0.72"/>
+    <ellipse cx="0" cy="-88" rx="28" ry="72" transform="rotate(315)" fill="url(#g-lotus)" opacity="0.68"/>
+    <!-- Inner petals (slightly smaller, offset) -->
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(22.5)"  fill="#e8c0a0" opacity="0.80"/>
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(67.5)"  fill="#e8c0a0" opacity="0.75"/>
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(112.5)" fill="#e8c0a0" opacity="0.80"/>
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(157.5)" fill="#e8c0a0" opacity="0.75"/>
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(202.5)" fill="#e8c0a0" opacity="0.80"/>
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(247.5)" fill="#e8c0a0" opacity="0.75"/>
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(292.5)" fill="#e8c0a0" opacity="0.80"/>
+    <ellipse cx="0" cy="-62" rx="20" ry="52" transform="rotate(337.5)" fill="#e8c0a0" opacity="0.75"/>
+    <!-- Center -->
+    <circle cx="0" cy="0" r="28" fill="#d49878" opacity="0.70"/>
+    <circle cx="0" cy="0" r="16" fill="#e8b890" opacity="0.80"/>
+    <circle cx="0" cy="0" r="8"  fill="#f0d0b0" opacity="0.90"/>
   </g>
 </svg>

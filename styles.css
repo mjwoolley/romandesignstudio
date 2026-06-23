@@ -116,8 +116,7 @@ a { color: inherit; }
   object-fit: cover;
   object-position: center top;
   pointer-events: none;
-  opacity: 0.72;
-  mix-blend-mode: multiply;
+  opacity: 0.82;
 }
 
 .hero-inner {
