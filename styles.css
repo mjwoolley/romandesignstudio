@@ -8,6 +8,7 @@
   --sage: #7d9b7a;
   --terracotta: #b5624a;
   --beige: #c9b99a;
+  --brass: #b8912a;
   --max: 1080px;
 }
 
@@ -80,6 +81,17 @@ a { color: inherit; }
   font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
+  color: var(--brass);
+}
+
+.tagline {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--brass);
+  letter-spacing: 0.04em;
+  margin: -0.2rem 0 1.8rem;
+  opacity: 0.88;
 }
 
 .nav-links {
