@@ -76,6 +76,9 @@ a { color: inherit; }
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.4rem;
   font-weight: 600;
@@ -84,14 +87,28 @@ a { color: inherit; }
   color: var(--brass);
 }
 
+.brand-mark {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
 .tagline {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.15rem;
   font-style: italic;
   color: var(--brass);
   letter-spacing: 0.04em;
-  margin: -0.2rem 0 1.8rem;
+  margin: -0.2rem 0 0.6rem;
   opacity: 0.88;
+}
+
+.hero-services-line {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1.8rem;
 }
 
 .nav-links {
@@ -391,6 +408,16 @@ a { color: inherit; }
   gap: 0.5rem;
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-brand .brand-mark {
+  height: 22px;
 }
 
 /* Responsive */
